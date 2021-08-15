@@ -83,20 +83,20 @@ export default class Stack {
  * ===============================
  */
 
-const stack = new Stack()
+// const stack = new Stack()
 
-console.log(stack.push(10))
-console.log(stack.push(20))
-console.log(stack.push(30))
-console.log(stack.toArray())
-console.log('stack.size', stack.size)
-console.log('stack.list', stack.list)
-// stack.map(val => val * 10)
-// console.log(stack.pop())
-// console.log(stack.pop())
-// console.log(stack.pop())
-// console.log(stack.pop())
+// console.log(stack.push(10))
+// console.log(stack.push(20))
+// console.log(stack.push(30))
 // console.log(stack.toArray())
-console.log(stack.first)
-stack.first.val = null
-console.log(stack)
+// console.log('stack.size', stack.size)
+// console.log('stack.list', stack.list)
+// // stack.map(val => val * 10)
+// // console.log(stack.pop())
+// // console.log(stack.pop())
+// // console.log(stack.pop())
+// // console.log(stack.pop())
+// // console.log(stack.toArray())
+// console.log(stack.first)
+// stack.first.val = null
+// console.log(stack)
