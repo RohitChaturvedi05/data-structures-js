@@ -11,14 +11,18 @@ export default class SinglyLinkedList {
         this.head = null
         this.tail = null
     }
+
+    get size() {
+        return this.length
+    }
     /**
      * Remove item from the bottom of the list
      */
     pop() {
-        if (!this.head || !this.tail) {
-            return
+        if (this.length > 0) {
+            return Boolean(this.remove(this.length - 1))
         }
-        return this.remove(this.length - 1)
+        return false
     }
     /**
      * Push item at the bottom of the list
@@ -42,11 +46,13 @@ export default class SinglyLinkedList {
      * remove a node on specified index
      */
     remove(index) {
-        if (index >= this.length || index < 0) return false
 
+        if (index >= this.length || index < 0) return false
         const curr = this.get(index)
         const prev = this.get(index - 1)
-        prev.next = curr.next
+        if (prev && prev.next) {
+            prev.next = curr.next
+        }
         this.length--
 
         return true
@@ -192,6 +198,8 @@ export default class SinglyLinkedList {
      * Returns a array
      */
     toArray() {
+        if (this.length === 0) return []
+
         return this.reduce((acc, val) => {
             acc.push(val)
             return acc
@@ -234,26 +242,33 @@ export default class SinglyLinkedList {
         }
         return acc
     }
+
+    reset() {
+        this.length = 0
+        this.head = null
+        this.tail = null
+        return this
+    }
 }
 
-// ===========Samples================
-var list = new SinglyLinkedList()
-list.push(10) // 1
-list.push(20) // 2
-list.push(30) // 3
-list.push(40) // 4
-list.push(50) // 5
-// console.log(list)
-// list.reverse()
+// // ===========Samples================
+// var list = new SinglyLinkedList()
+// list.push(10) // 1
+// list.push(20) // 2
+// list.push(30) // 3
+// list.push(40) // 4
+// list.push(50) // 5
+// // console.log(list)
+// // list.reverse()
+// // list.map(x => x * 2)
+// // list.find(val => val === 30)
+// // list.insert(4, 45)
 // list.map(x => x * 2)
-// list.find(val => val === 30)
-// list.insert(4, 45)
-list.map(x => x * 2)
-console.log(list.toArray())
-const result = list.reduce((acc, val) => {
-    acc += val
-    return acc
-}, 0)
-console.log('Sum', result)
-list.reverse()
-console.log(list.toArray())
+// console.log(list.toArray())
+// const result = list.reduce((acc, val) => {
+//     acc += val
+//     return acc
+// }, 0)
+// console.log('Sum', result)
+// list.reverse()
+// console.log(list.toArray())
