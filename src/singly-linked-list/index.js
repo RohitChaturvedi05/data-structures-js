@@ -98,9 +98,7 @@ export default class SinglyLinkedList {
 
         //Reached at the end
         if (!this.head) {
-            this.tail = null
-            this.head = null
-            this.length = 0
+            this.reset()
             return null
         } else {
             this.length--

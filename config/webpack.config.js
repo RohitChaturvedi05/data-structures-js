@@ -18,9 +18,7 @@ module.exports = {
             return name === 'index' ? '[name].js' : '[name]/index.js';
         },
         globalObject: 'this',
-        path: path.resolve(__dirname, '../dist'),
         library: {
-            name: 'dataStructures',
             type: 'umd'
         }
     },
