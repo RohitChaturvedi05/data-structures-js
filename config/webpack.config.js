@@ -1,9 +1,22 @@
-const path = require('path');
+const path = require('path')
+const CopyPlugin = require("copy-webpack-plugin")
+
+
+const outputPath = path.resolve(__dirname, '../dist')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'doubly-linked-list': './src/doubly-linked-list',
+        index: './src/index.js',
+        queue: './src/queue',
+        'singly-linked-list': './src/singly-linked-list',
+        stack: './src/stack',
+    },
     output: {
-        filename: 'index.js',
+        path: outputPath,
+        filename: ({ chunk: { name } }) => {
+            return name === 'index' ? '[name].js' : '[name]/index.js';
+        },
         globalObject: 'this',
         path: path.resolve(__dirname, '../dist'),
         library: {
@@ -24,5 +37,14 @@ module.exports = {
                 }
             }
         }]
-    }
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: "./package.json", to: outputPath },
+                { from: "./package-lock.json", to: outputPath },
+                { from: "./README.md", to: outputPath }
+            ],
+        })
+    ]
 }
