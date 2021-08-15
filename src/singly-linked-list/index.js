@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class SinglyLinkedList {
+export default class SinglyLinkedList {
     constructor() {
         this.length = 0
         this.head = null

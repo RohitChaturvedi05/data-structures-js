@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class Queue {
+export default class Queue {
 
     constructor() {
         this._head = null
@@ -17,10 +17,10 @@ class Queue {
         return this._size
     }
     get first() {
-        return Object.freeze(this._head)
+        return this._head
     }
     get last() {
-        return Object.freeze(this._tail)
+        return this._tail
     }
     get list() {
         return this.toArray()
@@ -60,6 +60,12 @@ class Queue {
     toArray() {
         let returnArr = []
         let node = this._head
+        if (this._size === 0) {
+            return []
+        }
+        if (this._size === 1) {
+            return [this._head.val]
+        }
         while (node) {
             returnArr.push(node.val)
             node = node.next
@@ -79,25 +85,3 @@ class Queue {
         return this
     }
 }
-
-/**
- * ===============================
- *          Samples
- * ===============================
- */
-
-const queue = new Queue()
-
-console.log(queue.enqueue(10))
-console.log(queue.enqueue(20))
-console.log(queue.enqueue(30))
-console.log(queue.toArray())
-
-console.log(queue.dequeue())
-console.log(queue.dequeue())
-console.log(queue.dequeue())
-console.log(queue.dequeue())
-
-console.log(queue.toArray())
-
-console.log(queue)

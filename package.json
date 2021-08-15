@@ -1,0 +1,42 @@
+{
+    "name": "data-structures",
+    "version": "1.0.0",
+    "description": "data structures with js",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --watch",
+        "test-coverage": "jest --coverage",
+        "build": "webpack --config ./config/webpack.config.js --mode production",
+        "test-build": "node ./test/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RohitChaturvedi05/data-structures-js.git"
+    },
+    "keywords": [
+        "data-structure",
+        "linked",
+        "list",
+        "doubbly",
+        "linked",
+        "list",
+        "stack",
+        "queue"
+    ],
+    "author": "rohit",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RohitChaturvedi05/data-structures-js/issues"
+    },
+    "homepage": "https://github.com/RohitChaturvedi05/data-structures-js#readme",
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
+        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+        "@babel/preset-env": "^7.15.0",
+        "babel-loader": "^8.2.2",
+        "jest": "^27.0.6",
+        "webpack": "^5.50.0",
+        "webpack-cli": "^4.7.2"
+    }
+}

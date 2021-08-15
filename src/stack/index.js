@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class Stack {
+export default class Stack {
 
     constructor() {
         this._first = null
