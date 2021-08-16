@@ -2,7 +2,7 @@ import SinglyLinkedList from '../index'
 
 
 describe('SinglyLinkedList', () => {
-    var list = new SinglyLinkedList()
+    const list = new SinglyLinkedList()
 
     it('if not item exist then first and last item should be same in SLL', () => {
         list.push(10) // 1
